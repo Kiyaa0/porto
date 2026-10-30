@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rizki — Portofolio Persona 3 Reload</title>
+
+  <!-- Google Fonts: Anton, Bebas Neue, Barlow Condensed, Rubik -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,700;1,700&family=Bebas+Neue&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Persona 3 Reload Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="root">
+    <div id="main">
+
+      <!-- Background Layer: Persona 3 Reload Animated GIF -->
+      <div class="p3-bg-layer" id="bgLayer">
+        <img class="p3-bg-gif-main" id="bgGifMain" src="assets/persona-3-reload-persona.gif"
+          alt="Persona 3 Reload Background">
+      </div>
+      <div class="p3-overlay-gradient"></div>
+
+      <!-- Universal P3R Mobile Back Button (From wal-persona3) -->
+      <button type="button" class="mobile-back-btn" id="globalBackBtn" aria-label="Go back" title="Back">
+        <span class="mobile-back-btn-arrow">◄</span>
+      </button>
+
+      <!-- Audio Elements: BGM & Sound Effects (Lobby, Hover, Select) -->
+      <audio id="audioBgm" src="assets/lobby.mp3" loop preload="auto"></audio>
+      <audio id="audioHover" src="assets/hover.mp3" preload="auto"></audio>
+      <audio id="audioSelect" src="assets/select.mp3" preload="auto"></audio>
+
+      <!-- Audio BGM Toggle Button -->
+      <button class="audio-toggle-btn" id="audioToggleBtn" title="BGM Sound Toggle">
+        🎵 BGM: OFF
+      </button>
+
+      <!-- ====================================================================
+           1. MAIN MENU SCREEN (CENTER WHEEL / SLANTED MENU ROWS)
+           ==================================================================== -->
+      <div id="screen-menu" class="active">
+        <nav class="p3-menu" id="mainMenuNav" aria-label="Persona 3 Main Menu"></nav>
+
+        <!-- Controller & Keyboard Hints -->
+        <div class="p3-hint mounted" id="menuHint">
+          <div class="p3-hint-row">
+            <span class="p3-hint-key">▲ ▼ / W S</span>
+            <span>NAVIGATE (NDT)</span>
+          </div>
+          <div class="p3-hint-row">
+            <span class="p3-hint-key">ENTER / CLICK</span>
+            <span>CONFIRM</span>
+          </div>
+          <div class="p3-hint-row">
+            <span class="p3-hint-key">ESC / BACK</span>
+            <span>BACK</span>
+          </div>
+          <div class="p3-hint-row hint-support-text">
+            CONTROLLER & KEYBOARD SUPPORTED
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           2. RESUME SCREEN (EXACT WAL-PERSONA3 ARCHITECTURE: ASIDE NAV + PANEL)
+           ==================================================================== -->
+      <div id="screen-resume">
+        <div class="resume-root">
+          <div class="resume-shell">
+            <!-- Left Aside Navigation List -->
+            <aside class="resume-nav" aria-label="Resume sections">
+              <h2 class="resume-nav-title">Resume</h2>
+              <div class="resume-nav-list" id="resumeNavList">
+                <!-- Dynamically populated by app.js -->
+              </div>
+            </aside>
+
+            <!-- Right Detail Section -->
+            <section class="resume-panel" aria-live="polite">
+              <header class="resume-panel-head">
+                <h3 class="resume-panel-title" id="resumePanelTitle">Event List</h3>
+                <p class="resume-panel-subtitle" id="resumePanelSubtitle">Timeline With Dates</p>
+              </header>
+
+              <!-- Scrollable rows -->
+              <div class="resume-rows" id="resumeRows">
+                <!-- Dynamically populated by app.js -->
+              </div>
+
+              <!-- Selected Row Detail Box -->
+              <article class="resume-detail">
+                <h4 class="resume-detail-title">Details</h4>
+                <p class="resume-detail-text" id="resumeDetailText">Select a row to view complete details.</p>
+              </article>
+
+              <p class="resume-helper" id="resumeHelper">Use Up/Down to navigate sections, Left/Right for rows, Enter to open links.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           3. ABOUT ME SCREEN (WAL-PERSONA3 ABOUT-SHELL: MENU + WHITE PAPER PANEL)
+           ==================================================================== -->
+      <div id="screen-about">
+        <div class="about-root">
+          <div class="about-shell">
+            <aside class="about-menu">
+              <h2 class="about-menu-title">About Me</h2>
+              <p class="about-menu-sub">Personal Dossier</p>
+              <p class="about-menu-hint">Keyboard & Touch Navigation Supported</p>
+              
+              <div class="about-controls">
+                <div class="about-control">
+                  <span class="about-control-key">ENTER / CLICK</span>
+                  <span>OPEN GITHUB</span>
+                </div>
+                <div class="about-control">
+                  <span class="about-control-key">L</span>
+                  <span>VIEW SOCIALS</span>
+                </div>
+                <div class="about-control">
+                  <span class="about-control-key">ESC / BACK</span>
+                  <span>MAIN MENU</span>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Right Paper Panel -->
+            <section class="about-panel" id="aboutPanel">
+              <div class="about-panel-header">
+                <h1 class="about-name">Rizki</h1>
+                <p class="about-tagline">Informatics Student @ STT Wastukancana Purwakarta</p>
+              </div>
+
+              <p class="about-bio">
+                Halo! Aku <strong>Rizki</strong>, mahasiswa aktif Teknik Informatika di STT Wastukancana Purwakarta. 
+                Aku berfokus pada rekayasa web (backend, frontend, dan arsitektur database) serta gemar menciptakan antarmuka interaktif yang ekspresif, responsif, dan mudah dinikmati.
+              </p>
+
+              <h3 class="about-bullets-title">Highlights & Milestones</h3>
+              <div class="about-bullets-list">
+                <div class="about-bullet-item">Mahasiswa Teknik Informatika aktif, Kelas Pagi B di STT Wastukancana.</div>
+                <div class="about-bullet-item">Mengembangkan aplikasi kalkulus web interaktif <strong>CalcKu</strong> berbasis Flask & SymPy live di Vercel.</div>
+                <div class="about-bullet-item">Aktif membangun proyek open-source dan eksplorasi RESTful API modern di GitHub (@Kiyaa0).</div>
+                <div class="about-bullet-item">Keahlian utama: Laravel, Python Flask, MySQL, JavaScript Vanilla, dan rancangan UI/UX Figma.</div>
+              </div>
+
+              <div class="about-actions">
+                <a href="https://github.com/Kiyaa0" target="_blank" rel="noopener" class="about-action-btn">
+                  🌐 OPEN GITHUB (@Kiyaa0)
+                </a>
+                <button type="button" class="about-action-btn" id="aboutGoSocialsBtn">
+                  💬 VIEW SOCIALS & CONTACT
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           4. SOCIALS SCREEN (WAL-PERSONA3 SC-ROOT HORIZONTAL BARS)
+           ==================================================================== -->
+      <div id="screen-socials">
+        <div class="sc-root">
+          <h2 class="sc-header-title">SOCIAL LINKS</h2>
+          <div id="socialsBarsContainer" style="width: 100%;">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Triple-Blade Shutter Transition -->
+      <div class="p3-transition-overlay" id="p3Transition">
+        <div class="p3-trans-blade"></div>
+        <div class="p3-trans-blade"></div>
+        <div class="p3-trans-blade"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
